@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Info from "./Info";
+import Information from "./Information";
 
 const styles = {
   container: {
@@ -16,6 +17,7 @@ const Form = () => {
     <div style={styles.container}>
       <Header />
       <Info />
+      <Information />
     </div>
   );
 };
