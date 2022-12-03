@@ -7,3 +7,53 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+
+.grid {
+  
+  max-width: 100%;
+  display: column;
+  columns: 3
+  
+}
+
+.grid > * {
+  break-inside: avoid;
+  margin-bottom: var(--gap);
+}
+
+@supports (grid-template-rows: masonry) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: masonry;
+    grid-auto-flow: dense;
+    /* align-tracks: stretch; */
+  }
+
+  .grid > * {
+    margin-bottom: 0em;
+  }
+}
+
+.featured {
+  grid-column: span 2;
+}
+
+
+
+
+
+.flow > * + * {
+  margin-top: var(--flow-space, var(--spacer));
+}
+
+
+.content {
+  background: white;
+}
+
+.title {
+  font-weight: 900;
+  color: var(--clr-primary);
+  line-height: 0.8;
+}

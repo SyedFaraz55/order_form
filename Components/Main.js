@@ -3,10 +3,10 @@ import { data } from "../data.json";
 const Main = () => {
   const [form, setForm] = useState({});
   return (
-    <div style={{display:"grid",gridTemplateColumns:"repeat( auto-fit, minmax(33.3%, 1fr) )",border:"1px solid #000"}}>
+    <div className="grid">
       {data?.map((item) => {
         return (
-          <div style={{ border:"1px solid #000"  }}>
+          <div style={{ border:"1px solid #000" }} className="content flow">
             <div
               style={{
                 textAlign: "center",

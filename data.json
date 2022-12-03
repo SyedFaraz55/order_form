@@ -45,11 +45,7 @@
       "rows": [
         { "name": "TERM-1", "price": 199, "total": "" },
         { "name": "TERM-2", "price": 199, "total": "" },
-        { "name": "TERM-3", "price": 199, "total": "" },
-        { "name": "Act. & WB T-1", "price": 159, "total": "" },
-        { "name": "Act. & WB T-2", "price": 159, "total": "" },
-        { "name": "Act. & WB T-3", "price": 159, "total": "" },
-        { "name": "WorkSheet", "price": 269, "total": "" }
+        { "name": "TERM-3", "price": 199, "total": "" }
       ],
       "order": 4
     },
