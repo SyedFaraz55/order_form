@@ -6,7 +6,7 @@ import Main from "./Main";
 
 const styles = {
   container: {
-    width: "50%",
+    width: "70%",
     margin: "0 auto",
     border: "2px solid #000",
     
