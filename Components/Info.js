@@ -15,7 +15,9 @@ const Info = () => {
       >
         <Image
           src={Logo}
-          style={{ width: 250, height: "auto", marginTop: 20 }}
+          style={{ width: 250, height: "auto", marginTop: 20 }
+        }
+        alt="img"
         />
         <div
           style={{
@@ -35,6 +37,7 @@ const Info = () => {
         <Image
           src={Logo}
           style={{ width: 250, height: "auto", marginTop: 20 }}
+          alt="img"
         />
         <div
           style={{

@@ -12,7 +12,7 @@ import {
 
 // Demo styles, see 'Styles' section below for some notes on use.
 import "react-accessible-accordion/dist/fancy-example.css";
-export default function category() {
+const Category = () => {
   const [text, setText] = useState("");
   const [data, setData] = useState([]);
   const getRecords = async () => {
@@ -73,20 +73,20 @@ export default function category() {
         <h2>All Records</h2>
         <div style={{ marginTop: 20 }}>
           <Accordion allowZeroExpanded={true}>
-            {data?.map((item) => {
+            {data?.map((item,index) => {
               return (
-                <AccordionItem>
+                <AccordionItem key={index}>
                   <AccordionItemHeading>
                     <AccordionItemButton>{item.title}</AccordionItemButton>
                   </AccordionItemHeading>
                   <AccordionItemPanel>
-                    {item?.rows?.map((item) => {
+                    {item?.rows?.map((item,index) => {
                       if (item.title) {
 const handle = () => {
     console.log(data,'err')
 }
                         return (
-                          <div>
+                          <div key={index}>
                             <div
                               style={{
                                 background: "#e6e6e6",
@@ -105,10 +105,11 @@ handle()
 
                             }}>Delete Section</button>
                             </div>
-                            {item?.rows?.map((item) => {
+                            {item?.rows?.map((item,index) => {
                               return (
                                 <>
                                   <div
+                                  key={index}
                                     style={{
                                       display: "flex",
                                       alignItems: "center",
@@ -160,3 +161,5 @@ handle()
     </div>
   );
 }
+
+export default Category

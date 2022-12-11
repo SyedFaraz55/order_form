@@ -43,10 +43,10 @@ const Main = () => {
   return (
     <>
       <div className="grid" style={{ padding: 5 }}>
-        {records?.map((item) => {
+        {records?.map((item,index) => {
           console.log(item, "item");
           return (
-            <div style={{ border: "1px solid #000", padding: 0 }}>
+            <div key={index} style={{ border: "1px solid #000", padding: 0 }}>
               <div
                 style={{
                   backgroundColor: item?.subtitle ? "#000" : "#e6e6e6",
@@ -71,11 +71,11 @@ const Main = () => {
                   <th></th>
                 </thead>
                 <tbody>
-                  {item?.rows?.map((item) => {
+                  {item?.rows?.map((item,index) => {
                     if (item.title) {
                       return (
                         <>
-                          <div>
+                          <div key={index}>
                             <div
                               style={{
                                 backgroundColor: item?.subtitle
@@ -94,9 +94,9 @@ const Main = () => {
                             </div>
                           </div>
                           <div>
-                            {item.rows.map((item) => {
+                            {item.rows.map((item,index) => {
                               return (
-                                <tr>
+                                <tr key={index}>
                                   <td style={{}}>
                                     <p>{item.name}</p>
                                   </td>
@@ -231,10 +231,10 @@ const Main = () => {
               >
                 <thead></thead>
                 <tbody>
-                  {packages?.volume?.map((item) => {
-                    return item?.rows?.map((item) => {
+                  {packages?.volume?.map((item,index) => {
+                    return item?.rows?.map((item,index) => {
                       return (
-                        <tr>
+                        <tr key={index}>
                           <td style={{ width: "50%" }}>
                             <p>{item.name}</p>
                           </td>
@@ -301,8 +301,8 @@ const Main = () => {
               >
                 <thead></thead>
                 <tbody>
-                  {packages?.semester?.map((item) => {
-                    return item?.rows?.map((item) => {
+                  {packages?.semester?.map((item,index) => {
+                    return item?.rows?.map((item,index) => {
                       return (
                         <tr>
                           <td style={{ width: "50%" }}>

@@ -29,7 +29,7 @@ const config = {
 };
 AWS.config.update(config);
 
-export default () => {
+const Home = () => {
   const ReactS3Client = new S3(config);
 
   const s3 = new AWS.S3();
@@ -121,7 +121,7 @@ export default () => {
   return (
     <div style={{ padding: 10 }}>
       <header style={{ padding: 20 }}>
-        <Image src={Logo} />
+        <Image alt="image" src={Logo} />
       </header>
       <Head></Head>
       <div style={{ height: "100vh" }}>
@@ -180,3 +180,6 @@ export default () => {
     </div>
   );
 };
+
+
+export default Home

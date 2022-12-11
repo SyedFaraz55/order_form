@@ -58,8 +58,8 @@ const AdminForm = () => {
         style={{ width: 300, padding: 5 }}
       >
         <option>Select Group</option>
-        {roots?.map((item) => {
-          return <option value={item.title}>{item.title}</option>;
+        {roots?.map((item,index) => {
+          return <option key={index} value={item.title}>{item.title}</option>;
         })}
       </select>
       <br />
