@@ -16,7 +16,7 @@ export default function category() {
   const [text, setText] = useState("");
   const [data, setData] = useState([]);
   const getRecords = async () => {
-    const r = await axios.get("http://localhost:8000/records");
+    const r = await axios.get("http://13.127.64.247:8000/records");
     if (r.data.ok) {
       setData(r.data.data);
       console.log(r.data.data);
@@ -27,7 +27,7 @@ export default function category() {
 
   const handleDelete = (item) => {
     axios
-      .post(`http://localhost:8000/delete-record/`, { id: item._id })
+      .post(`http://13.127.64.247:8000/delete-record/`, { id: item._id })
       .then((res) => {
         if (res.data.ok) {
           alert("Record Deleted");

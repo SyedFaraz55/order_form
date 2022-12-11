@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = () => {
-  const count = 1
+  const count = 1;
   const orderNumber = `${new Date().getDate()}${new Date().getFullYear()}${count}`;
   return (
     <div
@@ -17,9 +17,8 @@ const Header = () => {
         <input
           style={{
             width: 200,
-            height: 20,
             marginLeft: 10,
-            fontSize: 20,
+            fontSize: 15,
           }}
           value={orderNumber}
         />

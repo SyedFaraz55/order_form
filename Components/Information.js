@@ -21,7 +21,7 @@ const Information = () => {
                 marginLeft: 10,
                 fontSize: 16,
                 width: "70%",
-                fontWeight:"bold"
+                fontWeight: "bold",
               }}
             />
           </p>
@@ -35,7 +35,7 @@ const Information = () => {
                 marginLeft: 10,
                 fontSize: 16,
                 width: "80%",
-                fontWeight:"bold"
+                fontWeight: "bold",
               }}
             />
           </p>
@@ -46,9 +46,9 @@ const Information = () => {
                 border: 0,
                 outline: "none",
                 borderBottom: "1px dotted #000",
-
+                width: "45%",
                 fontSize: 16,
-                fontWeight:"bold"
+                fontWeight: "bold",
               }}
             />
             Cell:
@@ -57,9 +57,10 @@ const Information = () => {
                 border: 0,
                 outline: "none",
                 borderBottom: "1px dotted #000",
-                
+
+                width: "45%",
                 fontSize: 16,
-                fontWeight:"bold"
+                fontWeight: "bold",
               }}
             />
           </p>
@@ -76,7 +77,7 @@ const Information = () => {
                 marginLeft: 10,
                 fontSize: 16,
                 width: "70%",
-                fontWeight:"bold"
+                fontWeight: "bold",
               }}
             />
           </p>
@@ -90,7 +91,7 @@ const Information = () => {
                 marginLeft: 10,
                 fontSize: 16,
                 width: "80%",
-                fontWeight:"bold"
+                fontWeight: "bold",
               }}
             />
           </p>
@@ -101,9 +102,9 @@ const Information = () => {
                 border: 0,
                 outline: "none",
                 borderBottom: "1px dotted #000",
-                
+                width: "45%",
                 fontSize: 16,
-                fontWeight:"bold"
+                fontWeight: "bold",
               }}
             />
             Cell:
@@ -113,14 +114,22 @@ const Information = () => {
                 outline: "none",
                 borderBottom: "1px dotted #000",
                 fontSize: 16,
-                fontWeight:"bold"
+                fontWeight: "bold",
+                width: "45%",
               }}
             />
           </p>
         </div>
       </div>
-      <div style={{padding:4,marginTop:10,display:"flex",borderBottom:"1px solid #000"}}>
-        <p style={{ fontSize: 16, fontStyle: "italic",flex:1 }}>
+      <div
+        style={{
+          padding: 4,
+          marginTop: 10,
+          display: "flex",
+          borderBottom: "1px solid #000",
+        }}
+      >
+        <p style={{ fontSize: 16, fontStyle: "italic", flex: 1 }}>
           Tranport:
           <input
             style={{
@@ -129,12 +138,12 @@ const Information = () => {
               borderBottom: "1px dotted #000",
               marginLeft: 10,
               fontSize: 16,
-              width: "80%",
-              fontWeight:"bold"
+              width: "75%",
+              fontWeight: "bold",
             }}
           />
         </p>
-        <p style={{ fontSize: 16, fontStyle: "italic",flex:1 }}>
+        <p style={{ fontSize: 16, fontStyle: "italic", flex: 1 }}>
           Booking to:
           <input
             style={{
@@ -142,8 +151,8 @@ const Information = () => {
               outline: "none",
               borderBottom: "1px dotted #000",
               fontSize: 16,
-              width: "80%",
-              fontWeight:"bold"
+              width: "75%",
+              fontWeight: "bold",
             }}
           />
         </p>

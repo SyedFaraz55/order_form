@@ -5,11 +5,11 @@ import { data, extras } from "../data";
 const Main = () => {
   const [form, setForm] = useState({});
   const [records, setRecords] = useState([]);
-  const [packages,setPackages] = useState([]);
-  
-const getRecords = () => {
-  axios
-      .get("http://localhost:8000/records")
+  const [packages, setPackages] = useState([]);
+
+  const getRecords = () => {
+    axios
+      .get("http://13.127.64.247:8000/records")
       .then((res) => {
         if (res.data.ok) {
           setRecords(res.data.data);
@@ -21,10 +21,10 @@ const getRecords = () => {
         }
       })
       .catch((err) => alert(err.toString()));
-}
-const getPackages = ()=> {
-  axios
-      .get("http://localhost:8000/getPackages")
+  };
+  const getPackages = () => {
+    axios
+      .get("http://13.127.64.247:8000/getPackages")
       .then((res) => {
         if (res.data.ok) {
           setPackages(res.data.data);
@@ -35,7 +35,7 @@ const getPackages = ()=> {
         }
       })
       .catch((err) => alert(err.toString()));
-}
+  };
   useEffect(() => {
     getRecords();
     getPackages();
@@ -46,310 +46,319 @@ const getPackages = ()=> {
         {records?.map((item) => {
           console.log(item, "item");
           return (
-            <div style={{ border: "1px solid #000" }} className="content flow">
+            <div style={{ border: "1px solid #000", padding: 0 }}>
               <div
                 style={{
-                  textAlign: "center",
-                  backgroundColor: "#e6e6e6",
-                  borderBottom: "1px solid #000",
+                  backgroundColor: item?.subtitle ? "#000" : "#e6e6e6",
                 }}
               >
-                <div
+                <h4
                   style={{
-                    backgroundColor: item?.subtitle ? "#000" : "#e6e6e6",
+                    color: item.subtitle ? "#fff" : "#000",
+                    textAlign: "center",
                   }}
                 >
-                  <h3 style={{ color: item.subtitle ? "#fff" : "#000" }}>
-                    {item.title}
-                  </h3>
-                </div>
+                  {item.title}
+                </h4>
               </div>
-              {item.rows.map((item) => {
-                if (item.title) {
-                  return (
-                    <>
-                      <div
-                        style={{
-                          textAlign: "center",
-                          backgroundColor: "#e6e6e6",
-                          borderBottom: "1px solid #000",
-                        }}
-                      >
-                        <div
-                          style={{
-                            backgroundColor: item?.subtitle
-                              ? "#000"
-                              : "#e6e6e6",
-                          }}
-                        >
-                          <h3
-                            style={{ color: item.subtitle ? "#fff" : "#000" }}
-                          >
-                            {item.title}
-                          </h3>
-                        </div>
-                      </div>
-                      <div>
-                        {item.rows.map((item) => {
-                          return (
+              <table
+                border={"1px solid #000"}
+                style={{ borderCollapse: "collapse", padding: 0 }}
+              >
+                <thead>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </thead>
+                <tbody>
+                  {item?.rows?.map((item) => {
+                    if (item.title) {
+                      return (
+                        <>
+                          <div>
                             <div
                               style={{
-                                display: "flex",
-                                width: "100%",
-                                borderBottom: "1px solid #000",
-                                paddingBottom: 10,
-                                alignItems: "center",
-                                justifyContent: "center",
+                                backgroundColor: item?.subtitle
+                                  ? "#000"
+                                  : "#e6e6e6",
                               }}
                             >
-                              <div style={{ width: "100%" }}>
-                                <p>{item.name}</p>
-                              </div>
-                              <div style={{}}>
-                                <input
-                                  style={{
-                                    width: "100%",
-                                    fontSize: 16,
-                                  }}
-                                  disabled
-                                  value={item.price}
-                                />
-                              </div>
-                              <div>
-                                <input
-                                  style={{
-                                    fontSize: 16,
-                                    width: "100%",
-                                  }}
-                                  name={item.name + item.price}
-                                  onChange={(e) => {
-                                    setForm((prevState) => ({
-                                      ...prevState,
-                                      [e.target.name]: e.target.value,
-                                    }));
-                                  }}
-                                />
-                              </div>
-                              <div>
-                                <input
-                                  style={{
-                                    fontSize: 16,
-                                    width: "100%",
-                                  }}
-                                  value={
-                                    form[item.name + item.price]
-                                      ? form[item.name + item.price] *
-                                        item.price
-                                      : ""
-                                  }
-                                  disabled
-                                />
-                              </div>
+                              <h4
+                                style={{
+                                  color: item.subtitle ? "#fff" : "#000",
+                                  textAlign: "center",
+                                }}
+                              >
+                                {item.title}
+                              </h4>
                             </div>
-                          );
-                        })}
-                      </div>
-                    </>
-                  );
-                }
-                return (
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "100%",
-                      borderBottom: "1px solid #000",
-                      paddingBottom: 10,
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <div style={{ width: "100%" }}>
-                      <p>{item.name}</p>
-                    </div>
-                    <div style={{}}>
-                      <input
-                        style={{
-                          width: "100%",
-                          fontSize: 16,
-                        }}
-                        disabled
-                        value={item.price}
-                      />
-                    </div>
-                    <div>
-                      <input
-                        style={{
-                          fontSize: 16,
-                          width: "100%",
-                        }}
-                        name={item.name + item.price}
-                        onChange={(e) => {
-                          setForm((prevState) => ({
-                            ...prevState,
-                            [e.target.name]: e.target.value,
-                          }));
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <input
-                        style={{
-                          fontSize: 16,
-                          width: "100%",
-                        }}
-                        value={
-                          form[item.name + item.price]
-                            ? form[item.name + item.price] * item.price
-                            : ""
-                        }
-                        disabled
-                      />
-                    </div>
-                  </div>
-                );
-              })}
+                          </div>
+                          <div>
+                            {item.rows.map((item) => {
+                              return (
+                                <tr>
+                                  <td style={{}}>
+                                    <p>{item.name}</p>
+                                  </td>
+                                  <td style={{}}>
+                                    <input
+                                      style={{
+                                        width: "100%",
+                                        border: "none",
+                                        outline: "none",
+                                        fontSize: 16,
+                                      }}
+                                      disabled
+                                      value={item.price}
+                                    />
+                                  </td>
+                                  <td>
+                                    <input
+                                      style={{
+                                        width: "100%",
+                                        border: "none",
+                                        outline: "none",
+                                        fontSize: 16,
+                                      }}
+                                      name={item.name + item.price}
+                                      onChange={(e) => {
+                                        setForm((prevState) => ({
+                                          ...prevState,
+                                          [e.target.name]: e.target.value,
+                                        }));
+                                      }}
+                                    />
+                                  </td>
+                                  <td>
+                                    <input
+                                      style={{
+                                        width: "100%",
+                                        border: "none",
+                                        outline: "none",
+                                        fontSize: 16,
+                                      }}
+                                      value={
+                                        form[item.name + item.price]
+                                          ? form[item.name + item.price] *
+                                            item.price
+                                          : ""
+                                      }
+                                      disabled
+                                    />
+                                  </td>
+                                </tr>
+                              );
+                            })}
+                          </div>
+                        </>
+                      );
+                    }
+                    return (
+                      <tr style={{ padding: 20 }}>
+                        <td>{item.name}</td>
+                        <td>
+                          <input
+                            disabled
+                            value={item.price}
+                            style={{
+                              width: "100%",
+                              border: "none",
+                              outline: "none",
+                              fontSize: 16,
+                            }}
+                          />
+                        </td>
+                        <td>
+                          <input
+                            name={item.name + item.price}
+                            onChange={(e) => {
+                              setForm((prevState) => ({
+                                ...prevState,
+                                [e.target.name]: e.target.value,
+                              }));
+                            }}
+                            style={{
+                              width: "100%",
+                              border: "none",
+                              outline: "none",
+                              fontSize: 16,
+                            }}
+                          />
+                        </td>
+                        <td>
+                          <input
+                            style={{
+                              width: "100%",
+                              border: "none",
+                              outline: "none",
+                              fontSize: 16,
+                            }}
+                            value={
+                              form[item.name + item.price]
+                                ? form[item.name + item.price] * item.price
+                                : ""
+                            }
+                          />
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
           );
         })}
       </div>
-      <div style={{ marginTop: 80, textAlign: "center" }}>
+      <div style={{ marginTop: 300, textAlign: "center" }}>
         <h2 style={{ fontWeight: "bold" }}>GLOBAL SMART PACKAGES SERIES</h2>
 
-        <div style={{ marginTop: 30 }}>
+        <div style={{ marginTop: 80 }}>
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "40% 40% 20%",
+              padding: 10,
+              gridGap: 10,
+              gridTemplateColumns: "repeat(3,1fr)",
             }}
           >
             <div style={{}}>
-              <div style={{backgroundColor:"#e6e6e6",width:"90%",padding:5,border:"1px solid #000"}}>
-              <h4 style={{ fontWeight: "bold" }}>VOLUME PACKAGE</h4>
+              <div style={{ marginBottom: "10px" }}>
+                <h4 style={{ fontWeight: "bold" }}>VOLUME PACKAGE</h4>
               </div>
-              {packages?.volume?.map((item) => {
-               return item?.rows?.map(item => {
-                return (
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "90%",
-                      border: "1px solid #000",
-                      paddingBottom: 10,
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <div style={{ width: "100%" }}>
-                      <p>{item.name}</p>
-                    </div>
-                    <div style={{}}>
-                      <input
-                        style={{
-                          width: "100%",
-                          fontSize: 16,
-                        }}
-                        disabled
-                        value={item.price}
-                      />
-                    </div>
-                    <div>
-                      <input
-                        style={{
-                          fontSize: 16,
-                          width: "100%",
-                        }}
-                        name={item.name + item.price}
-                        onChange={(e) => {
-                          setForm((prevState) => ({
-                            ...prevState,
-                            [e.target.name]: e.target.value,
-                          }));
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <input
-                        style={{
-                          fontSize: 16,
-                          width: "100%",
-                        }}
-                        value={
-                          form[item.name + item.price]
-                            ? form[item.name + item.price] * item.price
-                            : ""
-                        }
-                        disabled
-                      />
-                    </div>
-                  </div>
-                );
-               })
-              })}
+              <table
+                border={"1px solid #000"}
+                style={{ borderCollapse: "collapse" }}
+              >
+                <thead></thead>
+                <tbody>
+                  {packages?.volume?.map((item) => {
+                    return item?.rows?.map((item) => {
+                      return (
+                        <tr>
+                          <td style={{ width: "50%" }}>
+                            <p>{item.name}</p>
+                          </td>
+                          <td style={{}}>
+                            <input
+                              style={{
+                                width: "100%",
+                                border: "none",
+                                outline: "none",
+                                fontSize: 16,
+                              }}
+                              disabled
+                              value={item.price}
+                            />
+                          </td>
+                          <td>
+                            <input
+                              style={{
+                                width: "100%",
+                                border: "none",
+                                outline: "none",
+                                fontSize: 16,
+                              }}
+                              name={item.name + item.price}
+                              onChange={(e) => {
+                                setForm((prevState) => ({
+                                  ...prevState,
+                                  [e.target.name]: e.target.value,
+                                }));
+                              }}
+                            />
+                          </td>
+                          <td>
+                            <input
+                              style={{
+                                width: "100%",
+                                border: "none",
+                                outline: "none",
+                                fontSize: 16,
+                              }}
+                              value={
+                                form[item.name + item.price]
+                                  ? form[item.name + item.price] * item.price
+                                  : ""
+                              }
+                              disabled
+                            />
+                          </td>
+                        </tr>
+                      );
+                    });
+                  })}
+                </tbody>
+              </table>
             </div>
 
             <div style={{}}>
-            <div style={{backgroundColor:"#e6e6e6",width:"90%",padding:5,border:"1px solid #000"}}>
-              <h4 style={{ fontWeight: "bold" }}>SEMESTER PACKAGE</h4>
+              <div style={{ marginBottom: "10px" }}>
+                <h4 style={{ fontWeight: "bold" }}>SEMESTER PACKAGE</h4>
               </div>
-              {packages.semester?.map((item) => {
-                return item?.rows?.map(item =>{
-                  return (
-                    <div
-                      style={{
-                        display: "flex",
-                        width: "90%",
-                        border: "1px solid #000",
-                        paddingBottom: 10,
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <div style={{ width: "100%" }}>
-                        <p>{item.name}</p>
-                      </div>
-                      <div style={{}}>
-                        <input
-                          style={{
-                            width: "100%",
-                            fontSize: 16,
-                          }}
-                          disabled
-                          value={item.price}
-                        />
-                      </div>
-                      <div>
-                        <input
-                          style={{
-                            fontSize: 16,
-                            width: "100%",
-                          }}
-                          name={item.name + item.price}
-                          onChange={(e) => {
-                            setForm((prevState) => ({
-                              ...prevState,
-                              [e.target.name]: e.target.value,
-                            }));
-                          }}
-                        />
-                      </div>
-                      <div>
-                        <input
-                          style={{
-                            fontSize: 16,
-                            width: "100%",
-                          }}
-                          value={
-                            form[item.name + item.price]
-                              ? form[item.name + item.price] * item.price
-                              : ""
-                          }
-                          disabled
-                        />
-                      </div>
-                    </div>
-                  );
-                })
-              })}
+              <table
+                border={"1px solid #000"}
+                style={{ borderCollapse: "collapse" }}
+              >
+                <thead></thead>
+                <tbody>
+                  {packages?.semester?.map((item) => {
+                    return item?.rows?.map((item) => {
+                      return (
+                        <tr>
+                          <td style={{ width: "50%" }}>
+                            <p>{item.name}</p>
+                          </td>
+                          <td style={{}}>
+                            <input
+                              style={{
+                                width: "100%",
+                                border: "none",
+                                outline: "none",
+                                fontSize: 16,
+                              }}
+                              disabled
+                              value={item.price}
+                            />
+                          </td>
+                          <td>
+                            <input
+                              style={{
+                                width: "100%",
+                                border: "none",
+                                outline: "none",
+                                fontSize: 16,
+                              }}
+                              name={item.name + item.price}
+                              onChange={(e) => {
+                                setForm((prevState) => ({
+                                  ...prevState,
+                                  [e.target.name]: e.target.value,
+                                }));
+                              }}
+                            />
+                          </td>
+                          <td>
+                            <input
+                              style={{
+                                width: "100%",
+                                border: "none",
+                                outline: "none",
+                                fontSize: 16,
+                              }}
+                              value={
+                                form[item.name + item.price]
+                                  ? form[item.name + item.price] * item.price
+                                  : ""
+                              }
+                              disabled
+                            />
+                          </td>
+                        </tr>
+                      );
+                    });
+                  })}
+                </tbody>
+              </table>
             </div>
 
             <div style={{ marginRight: 10, marginTop: 20 }}>
