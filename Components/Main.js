@@ -154,7 +154,7 @@ const Main = () => {
                       );
                     }
                     return (
-                      <tr style={{ padding: 20 }}>
+                      <tr key={index} style={{ padding: 20 }}>
                         <td>{item.name}</td>
                         <td>
                           <input
@@ -304,7 +304,7 @@ const Main = () => {
                   {packages?.semester?.map((item,index) => {
                     return item?.rows?.map((item,index) => {
                       return (
-                        <tr>
+                        <tr key={index}>
                           <td style={{ width: "50%" }}>
                             <p>{item.name}</p>
                           </td>

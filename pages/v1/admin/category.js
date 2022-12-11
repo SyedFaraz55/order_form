@@ -130,6 +130,7 @@ handle()
                       }
                       return (
                         <div
+                        key={index}
                           style={{
                             display: "flex",
                             alignItems: "center",
