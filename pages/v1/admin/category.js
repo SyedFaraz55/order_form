@@ -27,7 +27,7 @@ const Category = () => {
 
   const handleDelete = (item) => {
     axios
-      .post(`http://13.127.64.247:8000/delete-record/`, { id: item._id })
+      .post(`http://13.232.58.1:8000/delete-record/`, { id: item._id })
       .then((res) => {
         if (res.data.ok) {
           alert("Record Deleted");
