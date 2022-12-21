@@ -9,7 +9,7 @@ const Main = () => {
 
   const getRecords = () => {
     axios
-      .get("http://13.232.58.1:8000/records")
+      .get("http://localhost:8000/records")
       .then((res) => {
         if (res.data.ok) {
           setRecords(res.data.data);
@@ -24,7 +24,7 @@ const Main = () => {
   };
   const getPackages = () => {
     axios
-      .get("http://13.232.58.1:8000/getPackages")
+      .get("http://localhost:8000/getPackages")
       .then((res) => {
         if (res.data.ok) {
           setPackages(res.data.data);

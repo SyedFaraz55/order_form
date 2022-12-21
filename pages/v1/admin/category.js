@@ -16,7 +16,7 @@ const Category = () => {
   const [text, setText] = useState("");
   const [data, setData] = useState([]);
   const getRecords = async () => {
-    const r = await axios.get("http://13.127.64.247:8000/records");
+    const r = await axios.get("http://localhost:8000/records");
     if (r.data.ok) {
       setData(r.data.data);
       console.log(r.data.data);
@@ -27,7 +27,7 @@ const Category = () => {
 
   const handleDelete = (item) => {
     axios
-      .post(`http://13.232.58.1:8000/delete-record/`, { id: item._id })
+      .post(`http://localhost:8000/delete-record/`, { id: item._id })
       .then((res) => {
         if (res.data.ok) {
           alert("Record Deleted");
@@ -82,9 +82,6 @@ const Category = () => {
                   <AccordionItemPanel>
                     {item?.rows?.map((item,index) => {
                       if (item.title) {
-const handle = () => {
-    console.log(data,'err')
-}
                         return (
                           <div key={index}>
                             <div
@@ -100,9 +97,7 @@ const handle = () => {
                             >
                               <h3>{item.title}</h3>
                             <button className="bn60-link" style={{marginTop:10,marginBottom:10}} onClick={()=> {
-handle()
-                                console.log(item,'before')
-
+                                handle()
                             }}>Delete Section</button>
                             </div>
                             {item?.rows?.map((item,index) => {

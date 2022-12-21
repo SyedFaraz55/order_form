@@ -38,7 +38,7 @@ const AdminForm = () => {
   };
 
   const getCategories = async () => {
-    const r = await axios.get("http://13.127.64.247:8000/category");
+    const r = await axios.get("http://localhost:8000/category");
     if (r.data.ok) {
       setRoots(r.data.data);
     } else {
@@ -174,7 +174,7 @@ const AdminForm = () => {
               }
             }
 
-            if (form.length === 0) {
+            if (form?.length === 0) {
               alert("Please add atleast one record");
               return;
             }
@@ -194,7 +194,7 @@ const AdminForm = () => {
             }
 
             axios
-              .post("http://13.232.58.1:8000/send", payload)
+              .post("localhost:8000/send", payload)
               .then((res) => {
                 if (res.data.ok) {
                   alert("Record Added");
@@ -292,7 +292,7 @@ const AdminForm = () => {
             <button
               onClick={() => {
                 if (extra == 1) {
-                  axios.post("http://13.232.58.1:8000/volume",{
+                  axios.post("http://localhost:8000/volume",{
                     id:extra,
                     rows:packageForm
                   }).then(res =>{
@@ -304,7 +304,7 @@ const AdminForm = () => {
                     }
                   }).catch(err => alert(err.toString()))
                 } else if (extra == 2) {
-                  axios.post("http://13.232.58.1:8000/semester",{
+                  axios.post("http://localhost:8000/semester",{
                     id:extra,
                     rows:packageForm
                   }).then(res =>{

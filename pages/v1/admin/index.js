@@ -23,7 +23,14 @@ const Admin = () => {
             <a
               style={{ color: "#fff", textDecoration: "none", marginLeft: 20 }}
             >
-              Records
+              Record
+            </a>
+          </Link>
+          <Link href={"/v1/admin/series"} legacyBehavior>
+            <a
+              style={{ color: "#fff", textDecoration: "none", marginLeft: 20 }}
+            >
+              Smart Series
             </a>
           </Link>
         </div>
