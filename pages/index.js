@@ -64,7 +64,7 @@ const Home = () => {
       const { Location, Key } = await s3.upload(params).promise();
       if (Location) {
         axios
-          .post("http://localhost:8000/api/users/order", { link: Location })
+          .post("https://infopublishers.onrender.com/api/users/order", { link: Location })
           .then((res) => {
             if (res.data.ok) {
               // setForm(true);

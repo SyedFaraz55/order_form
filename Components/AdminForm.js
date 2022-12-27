@@ -38,7 +38,7 @@ const AdminForm = () => {
   };
 
   const getCategories = async () => {
-    const r = await axios.get("http://localhost:8000/category");
+    const r = await axios.get("https://infopublishers.onrender.com/category");
     if (r.data.ok) {
       setRoots(r.data.data);
     } else {
@@ -194,7 +194,7 @@ const AdminForm = () => {
             }
 
             axios
-              .post("localhost:8000/send", payload)
+              .post("https://infopublishers.onrender.com/send", payload)
               .then((res) => {
                 if (res.data.ok) {
                   alert("Record Added");
@@ -292,7 +292,7 @@ const AdminForm = () => {
             <button
               onClick={() => {
                 if (extra == 1) {
-                  axios.post("http://localhost:8000/volume",{
+                  axios.post("https://infopublishers.onrender.com/volume",{
                     id:extra,
                     rows:packageForm
                   }).then(res =>{
@@ -304,7 +304,7 @@ const AdminForm = () => {
                     }
                   }).catch(err => alert(err.toString()))
                 } else if (extra == 2) {
-                  axios.post("http://localhost:8000/semester",{
+                  axios.post("https://infopublishers.onrender.com/semester",{
                     id:extra,
                     rows:packageForm
                   }).then(res =>{

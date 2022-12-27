@@ -9,7 +9,7 @@ const Main = () => {
 
   const getRecords = () => {
     axios
-      .get("http://localhost:8000/records")
+      .get("https://infopublishers.onrender.com/records")
       .then((res) => {
         if (res.data.ok) {
           setRecords(res.data.data);
@@ -24,7 +24,7 @@ const Main = () => {
   };
   const getPackages = () => {
     axios
-      .get("http://localhost:8000/getPackages")
+      .get("https://infopublishers.onrender.com/getPackages")
       .then((res) => {
         if (res.data.ok) {
           setPackages(res.data.data);
