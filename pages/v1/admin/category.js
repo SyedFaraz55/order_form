@@ -67,6 +67,13 @@ const Category = () => {
               Records
             </a>
           </Link>
+          <Link href={"/v1/admin/series"} legacyBehavior>
+            <a
+              style={{ color: "#fff", textDecoration: "none", marginLeft: 20 }}
+            >
+              Smart Series
+            </a>
+          </Link>
         </div>
       </header>
       <div style={{ padding: 15 }}>
