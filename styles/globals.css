@@ -9,10 +9,11 @@ body {
 }
 
 .grid {
-  max-width: 100%;
-  display: column;
-  columns: 3;
+display: grid;
+grid-template-columns: repeat(3,1fr);
+
 }
+
 tr {
   border: 1px solid #000;
 }
@@ -33,19 +34,19 @@ td {
   margin-bottom: var(--gap);
 }
 
-@supports (grid-template-rows: masonry) {
+/* @supports (grid-template-rows: masonry) {
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: masonry;
+
     grid-auto-flow: dense;
-    /* align-tracks: stretch; */
+    align-tracks: stretch;
   }
 
   .grid > * {
     margin-bottom: 0em;
   }
-}
+} */
 
 .featured {
   grid-column: span 2;

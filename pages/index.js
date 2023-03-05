@@ -124,18 +124,17 @@ const Home = () => {
         <Image alt="image" src={Logo} />
       </header>
       <Head></Head>
-      <div style={{ height: "100vh" }}>
+      <div style={{ }}>
         {/* <div>
           <button style={{ marginBottom: "10px" }} onClick={getImage}>
             Take screenshot
           </button>
         </div> */}
-
         {/* <img width={500} src={image} alt={"Screenshot"} /> */}
         <div
           className="App"
           style={{
-            width: "210mm",
+            width: "250mm",
             minHeight:"200mm",
             marginLeft: "auto",
             marginRight: "auto",

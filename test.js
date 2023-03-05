@@ -44,7 +44,6 @@ const Main = () => {
     <>
       <div className="grid" style={{ padding: 5 }}>
         {data?.map((item) => {
-          console.log(item, "item");
           return (
             <div style={{ border: "1px solid #000" }} className="content flow">
               <div

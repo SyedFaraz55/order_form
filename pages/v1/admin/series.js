@@ -11,39 +11,8 @@ import {
 } from "react-accessible-accordion";
 
 // Demo styles, see 'Styles' section below for some notes on use.
-import "react-accessible-accordion/dist/fancy-example.css";
 const Series = () => {
-  const [text, setText] = useState("");
-  const [data, setData] = useState([]);
-  const getRecords = async () => {
-    const r = await axios.get("https://infopublishers.onrender.com/series");
-    if (r.data.ok) {
-      setData(r.data.data);
-      console.log(r.data.data);
-    } else {
-      alert("Something went wrong");
-    }
-  };
-
-  const handleDelete = (item) => {
-    axios
-      .post(`https://infopublishers.onrender.com/delete-record/`, { id: item._id })
-      .then((res) => {
-        if (res.data.ok) {
-          alert("Record Deleted");
-          getRecords();
-        } else {
-          alert("Failed to delet record");
-        }
-      })
-      .catch((err) => {
-        alert(err.toString());
-      });
-  };
-
-  useEffect(() => {
-    getRecords();
-  }, []);
+   
   return (
     <div>
       <header
